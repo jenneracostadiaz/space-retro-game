@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Space Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <h1>RETRO SPACE</h1>
+            <div class="score-board">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="lives">Lives: <span id="lives">5</span></div>
+                <div class="level">Level: <span id="level">1</span></div>
+            </div>
+        </div>
+        
+        <canvas id="gameCanvas" width="800" height="600"></canvas>
+        
+        <div class="game-controls">
+            <div class="instructions">
+                <p>Use MOUSE to move • LEFT CLICK to shoot • ARROW KEYS also work</p>
+                <button id="startBtn">START GAME</button>
+                <button id="pauseBtn" style="display: none;">PAUSE</button>
+            </div>
+        </div>
+        
+        <div id="gameOver" class="game-over" style="display: none;">
+            <h2>GAME OVER</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button id="restartBtn">PLAY AGAIN</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
