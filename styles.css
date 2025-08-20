@@ -1,0 +1,244 @@
+/* Retro Game Styles - Avoiding Purple Colors */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Orbitron', monospace;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #00ff41;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid #00ff41;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 
+        0 0 20px #00ff41,
+        inset 0 0 20px rgba(0, 255, 65, 0.1);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 
+            0 0 20px #00ff41,
+            inset 0 0 20px rgba(0, 255, 65, 0.1);
+    }
+    to {
+        box-shadow: 
+            0 0 30px #00ff41,
+            0 0 40px #00ff41,
+            inset 0 0 30px rgba(0, 255, 65, 0.2);
+    }
+}
+
+.game-header {
+    margin-bottom: 20px;
+}
+
+.game-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #ff6b35;
+    text-shadow: 
+        0 0 10px #ff6b35,
+        0 0 20px #ff6b35,
+        0 0 30px #ff6b35;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.score, .lives, .level {
+    background: rgba(0, 255, 65, 0.1);
+    padding: 8px 15px;
+    border: 1px solid #00ff41;
+    border-radius: 5px;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+#gameCanvas {
+    border: 3px solid #ff6b35;
+    border-radius: 5px;
+    background: #000814;
+    box-shadow: 
+        0 0 20px rgba(255, 107, 53, 0.5),
+        inset 0 0 50px rgba(0, 8, 20, 0.8);
+    display: block;
+    margin: 0 auto;
+    cursor: crosshair;
+}
+
+.game-controls {
+    margin-top: 20px;
+}
+
+.instructions {
+    margin-bottom: 15px;
+}
+
+.instructions p {
+    font-size: 1rem;
+    color: #ffd60a;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #ffd60a;
+}
+
+button {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 12px 25px;
+    margin: 0 10px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 4px 15px rgba(255, 107, 53, 0.4),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 6px 20px rgba(255, 107, 53, 0.6),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 2px 10px rgba(255, 107, 53, 0.4),
+        inset 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 40px;
+    border: 3px solid #ff6b35;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 
+        0 0 30px #ff6b35,
+        inset 0 0 20px rgba(255, 107, 53, 0.1);
+}
+
+.game-over h2 {
+    font-size: 2.5rem;
+    color: #ff6b35;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff6b35;
+}
+
+.game-over p {
+    font-size: 1.5rem;
+    color: #00ff41;
+    margin-bottom: 25px;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .game-container {
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+    }
+    
+    .game-header h1 {
+        font-size: 2rem;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+        margin: 5px;
+    }
+}
+
+/* Retro scanlines effect */
+.game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.03) 2px,
+        rgba(0, 255, 65, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Starfield background animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+        radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+        radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: stars 20s linear infinite;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+@keyframes stars {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100px);
+    }
+}
